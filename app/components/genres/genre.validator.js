@@ -9,7 +9,7 @@ module.exports = {
     let result = Joi.validate(genre, genresSchema);
     if (result.error) {
       result = result.error.details.map(detail => detail.message);
-      result = result.error.join();
+      result = result.join();
       throw new Error(result);
     }
     return true;
