@@ -1,13 +1,12 @@
 class GenreMongoRepository {
-  constructor(mongoose) {
+  constructor({ mongoose, schemas }) {
     this.mongoose = mongoose;
+    this.schemas  = schemas;
     this.Model    = this.mongoose.model('Genre', this.schema);
   }
 
   get schema() {
-    return new this.mongoose.Schema({
-      name: String
-    });
+    return new this.mongoose.Schema(this.schemas.genreSchema);
   }
 
   async findById(id) {
@@ -38,4 +37,4 @@ class GenreMongoRepository {
   }
 }
 
-module.exports = ({ mongoose }) => new GenreMongoRepository(mongoose);
+module.exports = ({ mongoose, schemas }) => new GenreMongoRepository({ mongoose, schemas });

@@ -1,7 +1,7 @@
-const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/movie-rental');
+const persistence = require('./mongoose');
 
 module.exports = {
-  genreRepository   : require('./genre.mongo')({ mongoose }),
-  customerRepository: require('./customer.mongo')({ mongoose })
+  genreRepository   : persistence.genreDb,
+  customerRepository: persistence.customerDb,
+  movieRepository   : persistence.movieDb
 }

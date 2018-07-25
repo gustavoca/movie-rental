@@ -1,15 +1,12 @@
 class CustomerMongoRepository {
-  constructor(mongoose) {
+  constructor({ mongoose, schemas }) {
     this.mongoose = mongoose;
+    this.schemas = schemas;
     this.Model    = this.mongoose.model('Customer', this.schema);
   }
 
   get schema() {
-    return new this.mongoose.Schema({
-      name  : String,
-      isGold: Boolean,
-      phone : Number
-    });
+    return new this.mongoose.Schema(this.schemas.customerSchema);
   }
 
   async findById(id) {
@@ -40,4 +37,4 @@ class CustomerMongoRepository {
   }
 }
 
-module.exports = ({ mongoose }) => new CustomerMongoRepository(mongoose);
+module.exports = ({ mongoose, schemas }) => new CustomerMongoRepository({ mongoose, schemas });
