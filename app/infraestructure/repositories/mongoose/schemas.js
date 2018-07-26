@@ -1,4 +1,4 @@
-const customerSchemas = {
+const customerSchema = {
   name  : String,
   isGold: Boolean,
   phone : Number
@@ -9,7 +9,7 @@ const genreSchema = {
 }
 
 const movieSchema = {
-  title : String,
+  title: String,
   genre: {
     type    : genreSchema,
     required: true
@@ -18,8 +18,21 @@ const movieSchema = {
   dailyRentalRate: Number
 }
 
+const rentalSchema = {
+  customer: {
+    type: customerSchema
+  },
+  movie: {
+    type: movieSchema
+  },
+  dateOut     : Date,
+  dateReturned: Date,
+  rentalFee   : Number
+}
+
 module.exports = {
-  customerSchema: customerSchemas,
+  customerSchema: customerSchema,
   genreSchema   : genreSchema,
-  movieSchema   : movieSchema
+  movieSchema   : movieSchema,
+  rentalSchema  : rentalSchema
 }

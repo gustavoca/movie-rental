@@ -1,12 +1,12 @@
-class MovieMongoRepository {
+class RentalMongoRepository {
   constructor({ mongoose, schemas }) {
     this.mongoose = mongoose;
     this.schemas  = schemas;
-    this.Model    = this.mongoose.model('Movie', this.schema);
+    this.Model    = this.mongoose.model('Rental', this.schema);
   }
 
   get schema() {
-    return new this.mongoose.Schema(this.schemas.movieSchema);
+    return new this.mongoose.Schema(this.schemas.rentalSchema);
   }
 
   async findById(id) {
@@ -17,14 +17,14 @@ class MovieMongoRepository {
     if (!this.mongoose.Types.ObjectId.isValid(id)) throw new Error(`id ${id} is not valid`);
   }
 
-  async save(movie) {
-    const newMovie = new this.Model(movie);
-    return await newMovie.save();
+  async save(rental) {
+    const newRental = new this.Model(rental);
+    return await newRental.save();
   }
 
-  async update(id, newMovie) {
+  async update(id, newRental) {
     this.isAvalidId(id);
-    return await this.Model.findByIdAndUpdate(id, newMovie, { new: true });
+    return await this.Model.findByIdAndUpdate(id, newRental, { new: true });
   }
 
   async all() {
@@ -37,4 +37,4 @@ class MovieMongoRepository {
   }
 }
 
-module.exports = ({ mongoose, schemas }) => new MovieMongoRepository({ mongoose, schemas });
+module.exports = ({ mongoose, schemas }) => new RentalMongoRepository({ mongoose, schemas });
