@@ -6,5 +6,5 @@ module.exports = ({ userRepository, User, userValidator }) =>
     let newUser = new User({ name, password, email });
     newUser = await userRepository.save(newUser);
     newUser = new User(newUser);
-    return newUser;
+    return newUser.publicParameters;
   }

@@ -4,6 +4,13 @@ class User {
     this.password = password;
     this.email    = email;
   }
+
+  get publicParameters() {
+    return {
+      name : this.name,
+      email: this.email
+    }
+  }
 }
 
 module.exports = User;
