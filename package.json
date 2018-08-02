@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/gustavoca/movie-rental#readme",
   "dependencies": {
+    "bcrypt": "^3.0.0",
     "debug": "^3.1.0",
     "express": "^4.16.3",
     "helmet": "^3.12.1",
