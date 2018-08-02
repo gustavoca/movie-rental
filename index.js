@@ -5,6 +5,8 @@ const genresRoutes = require('./routes/genres.routes');
 const customersRoutes = require('./routes/customers.routes');
 const moviesRoutes = require('./routes/movies.routes');
 const rentalsRoutes = require('./routes/rentals.routes');
+const usersRoutes = require('./routes/users.routes');
+// const loginsRoutes = require('./routes/logins.routes');
 const homeRoutes   = require('./routes/home.routes');
 const app     = express();
 
@@ -15,6 +17,8 @@ app.use('/api/genres', genresRoutes);
 app.use('/api/customers', customersRoutes);
 app.use('/api/movies', moviesRoutes);
 app.use('/api/rentals', rentalsRoutes);
+app.use('/api/users', usersRoutes);
+// app.use('/api/logins', loginsRoutes);
 app.use('/', homeRoutes);
 
 const port = process.env.PORT || 3000;

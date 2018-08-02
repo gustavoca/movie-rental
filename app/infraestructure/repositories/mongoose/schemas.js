@@ -30,9 +30,19 @@ const rentalSchema = {
   rentalFee   : Number
 }
 
+const userSchema = {
+  name    : String,
+  email   : String,
+  password: {
+    type: String,
+    unique: true
+  }
+}
+
 module.exports = {
   customerSchema: customerSchema,
   genreSchema   : genreSchema,
   movieSchema   : movieSchema,
-  rentalSchema  : rentalSchema
+  rentalSchema  : rentalSchema,
+  userSchema    : userSchema
 }
