@@ -1,5 +1,5 @@
-const encryptPassword = require('./encrypt-password');
+const passwordService = require('./password.service');
 
 module.exports = {
-  encryptPassword: encryptPassword
+  passwordService: passwordService
 }
