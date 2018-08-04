@@ -1,3 +1,4 @@
+const config   = require('config');
 const morgan  = require('morgan'); //request logging
 const helmet  = require('helmet'); //securing express
 const express = require('express');
@@ -8,6 +9,11 @@ const rentalsRoutes = require('./routes/rentals.routes');
 const usersRoutes = require('./routes/users.routes');
 const authRoutes = require('./routes/auth.routes');
 const homeRoutes   = require('./routes/home.routes');
+
+if (!config.get('jwtPrivateKey')) {
+  console.error('FATAL: jwtPrivateKey is not defined');
+  process.exit(1);
+}
 const app     = express();
 
 app.use(express.json());
