@@ -1,3 +1,4 @@
+const authMiddleware = require('../middleware/authorization');
 const express = require('express');
 const router  = express.Router();
 const {
@@ -6,8 +7,7 @@ const {
   updateGenre,
   deleteGenre } = require('../app/components/genres/actions');
 
-//genres endpoints----------------------------
-router.post('/', async (req, res) => {
+router.post('/', authMiddleware, async (req, res) => {
   try {
     const genre = await createGenre(req.body);
     return res.send(genre);
@@ -50,6 +50,5 @@ router.delete('/:id', async (req, res) => {
     return res.status(400).send(e.message);
   }
 })
-//genres endpoints----------------------------
 
 module.exports = router;
