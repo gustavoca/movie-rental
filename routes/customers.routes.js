@@ -4,7 +4,7 @@ const {
   createCustomer,
   readCustomer,
   updateCustomer,
-  deleteCustomer } = require('../app/components/customers/actions');
+  deleteCustomer } = require('../app/actions/customer');
 
 router.post('/', async (req, res) => {
   const genre = await createCustomer(req.body);

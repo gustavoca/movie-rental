@@ -1,9 +1,9 @@
 const {
   movieRepository,
   genreRepository
-} = require('../../../infraestructure/repositories');
-const Movie           = require('../movie.model');
-const movieValidator  = require('../movie.validator');
+} = require('../../infraestructure/repositories');
+const Movie           = require('../../model/movie/movie.model');
+const movieValidator  = require('../../model/movie/movie.validator');
 
 module.exports = {
   createMovie: require('./create.movie')({ movieRepository, genreRepository, Movie, movieValidator }),

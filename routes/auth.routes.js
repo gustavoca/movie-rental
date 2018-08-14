@@ -1,6 +1,6 @@
 const express = require('express');
 const router  = express.Router();
-const authenticateUser = require('../app/components/users/actions').authenticateUser;
+const authenticateUser = require('../app/actions/user').authenticateUser;
 
 router.post('/', async (req, res) => {
   const genre = await authenticateUser(req.body);

@@ -2,7 +2,7 @@ const express = require('express');
 const router  = express.Router();
 const {
   createRental,
-  readRental } = require('../app/components/rentals/actions');
+  readRental } = require('../app/actions/rental');
 
 router.post('/', async (req, res) => {
   const genre = await createRental(req.body);

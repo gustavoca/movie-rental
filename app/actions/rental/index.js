@@ -2,11 +2,11 @@ const {
   rentalRepository,
   movieRepository,
   customerRepository
-} = require('../../../infraestructure/repositories');
-const Rental           = require('../rental.model');
-const Movie            = require('../../movies/movie.model');
-const Customer         = require('../../customers/customer.model');
-const rentalValidator  = require('../rental.validator');
+} = require('../../infraestructure/repositories');
+const Rental           = require('../../model/rental/rental.model');
+const Movie            = require('../../model/movie/movie.model');
+const Customer         = require('../../model/customer/customer.model');
+const rentalValidator  = require('../../model/rental/rental.validator');
 
 module.exports = {
   createRental: require('./create.rental')({

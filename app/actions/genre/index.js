@@ -1,6 +1,6 @@
-const genreRepository = require('../../../infraestructure/repositories').genreRepository;
-const Genre           = require('../genre.model');
-const genreValidator  = require('../genre.validator');
+const genreRepository = require('../../infraestructure/repositories').genreRepository;
+const Genre           = require('../../model/genre/genre.model');
+const genreValidator  = require('../../model/genre/genre.validator');
 
 module.exports = {
   createGenre: require('./create.genre')({ genreRepository, Genre, genreValidator }),

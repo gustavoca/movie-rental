@@ -4,7 +4,7 @@ const {
   createMovie,
   readMovie,
   updateMovie,
-  deleteMovie } = require('../app/components/movies/actions');
+  deleteMovie } = require('../app/actions/movie');
 
 router.post('/', async (req, res) => {
   const genre = await createMovie(req.body);

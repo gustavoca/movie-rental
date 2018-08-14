@@ -1,6 +1,6 @@
-const customerRepository = require('../../../infraestructure/repositories').customerRepository;
-const Customer           = require('../customer.model');
-const customerValidator  = require('../customer.validator');
+const customerRepository = require('../../infraestructure/repositories').customerRepository;
+const Customer           = require('../../model/customer/customer.model');
+const customerValidator  = require('../../model/customer/customer.validator');
 
 module.exports = {
   createCustomer: require('./create.customer')({ customerRepository, Customer, customerValidator }),

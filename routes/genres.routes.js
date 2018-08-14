@@ -6,7 +6,7 @@ const {
   createGenre,
   readGenre,
   updateGenre,
-  deleteGenre } = require('../app/components/genres/actions');
+  deleteGenre } = require('../app/actions/genre');
 
 router.post('/', [authMiddleware, adminMiddleware], async (req, res) => {
   const genre = await createGenre(req.body);
