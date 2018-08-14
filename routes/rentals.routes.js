@@ -5,25 +5,13 @@ const {
   readRental } = require('../app/components/rentals/actions');
 
 router.post('/', async (req, res) => {
-  try {
-    const genre = await createRental(req.body);
-    return res.send(genre);
-  }
-  catch(e) {
-    console.log(e);
-    return res.status(400).send(e.message);
-  }
+  const genre = await createRental(req.body);
+  return res.send(genre);
 })
 
 router.get('/', async (req, res) => {
-  try {
-    const genres = await readRental();
-    res.send(genres);
-  }
-  catch(e) {
-    console.log(e);
-    return res.status(400).send(e.message);
-  }
+  const genres = await readRental();
+  res.send(genres);
 })
 
 // router.put('/:id', async (req, res) => {

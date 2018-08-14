@@ -1,7 +1,9 @@
-const config   = require('config');
+const config  = require('config');
 const morgan  = require('morgan'); //request logging
 const helmet  = require('helmet'); //securing express
 const express = require('express');
+require('express-async-errors');
+const errorMiddleware = require('./middleware/error');
 const genresRoutes = require('./routes/genres.routes');
 const customersRoutes = require('./routes/customers.routes');
 const moviesRoutes = require('./routes/movies.routes');
@@ -25,6 +27,7 @@ app.use('/api/movies', moviesRoutes);
 app.use('/api/rentals', rentalsRoutes);
 app.use('/api/users', usersRoutes);
 app.use('/api/auth', authRoutes);
+app.use(errorMiddleware);
 app.use('/', homeRoutes);
 
 const port = process.env.PORT || 3000;
