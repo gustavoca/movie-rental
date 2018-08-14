@@ -6,5 +6,5 @@ module.exports = ({ userRepository, User, userAuthenticationValidator, comparePa
     const registeredUser = new User(user);
     const isValidPassword = await comparePassword(password, registeredUser.password);
     if (!isValidPassword) throw new Error(`Invalid email or password`);
-    return createToken({ id: registeredUser.id });
+    return createToken(registeredUser);
   }

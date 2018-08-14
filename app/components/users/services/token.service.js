@@ -1,7 +1,7 @@
 const jwt = require('jsonwebtoken');
 
-const create = ({ privateKey }) => ({ id }) => {
-  return jwt.sign({ id: id }, privateKey);
+const create = ({ privateKey }) => ({ id, isAdmin }) => {
+  return jwt.sign({ id: id, isAdmin: isAdmin }, privateKey);
 }
 
 const verify = ({ privateKey }) => ({ token }) => {

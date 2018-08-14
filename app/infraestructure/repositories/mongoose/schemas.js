@@ -33,7 +33,8 @@ const rentalSchema = {
 const userSchema = {
   name    : String,
   email   : String,
-  password: String
+  password: String,
+  isAdmin : Boolean
 }
 
 module.exports = {
