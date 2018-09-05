@@ -1,8 +1,9 @@
+require('express-async-errors');
+const express = require('express');
+const log     = require('./app/lib/logger');
 const config  = require('config');
 const morgan  = require('morgan'); //request logging
 const helmet  = require('helmet'); //securing express
-const express = require('express');
-require('express-async-errors');
 const errorMiddleware = require('./middleware/error');
 const genresRoutes = require('./routes/genres.routes');
 const customersRoutes = require('./routes/customers.routes');
@@ -13,7 +14,7 @@ const authRoutes = require('./routes/auth.routes');
 const homeRoutes   = require('./routes/home.routes');
 
 if (!config.get('jwtPrivateKey')) {
-  console.error('FATAL: jwtPrivateKey is not defined');
+  log.error('FATAL: jwtPrivateKey is not defined');
   process.exit(1);
 }
 const app     = express();
@@ -32,4 +33,4 @@ app.use('/', homeRoutes);
 
 const port = process.env.PORT || 3000;
 app.listen(port);
-console.log(`Listening on port ${port}`);
+log.info(`Listening on port ${port}`);
