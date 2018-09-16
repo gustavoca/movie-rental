@@ -13,6 +13,11 @@ const usersRoutes = require('./routes/users.routes');
 const authRoutes = require('./routes/auth.routes');
 const homeRoutes   = require('./routes/home.routes');
 
+process.on('unhandledRejection', (ex) => {
+  log.error(ex.message, ex);
+  process.exit(1);
+});
+
 if (!config.get('jwtPrivateKey')) {
   log.error('FATAL: jwtPrivateKey is not defined');
   process.exit(1);
